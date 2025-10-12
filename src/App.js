@@ -10,10 +10,14 @@ function App() {
   useEffect(() => {
     const updateCountdown = () => {
       const now = new Date();
-      const nextMidnight = new Date();
-      nextMidnight.setHours(24, 0, 0, 0);
 
-      const diff = nextMidnight - now;
+      // 🎯 Set unlock time for TODAY at 3:07 PM
+      const unlockTime = new Date();
+      unlockTime.setHours(15, 7, 0, 0);
+
+      const diff = unlockTime - now;
+
+      // If current time is past 3:07 PM, unlock immediately
       if (diff <= 0) {
         setIsUnlocked(true);
         return;
@@ -39,24 +43,26 @@ function App() {
     <div className="birthday-container">
       {!isUnlocked ? (
         <div className="locked-section">
-          <h1 className="title">Wait madam... 👶💫</h1>
+          <h1 className="title">Wait madam... 😊💫</h1>
           <p className="subtitle">
-            You’re not born yet! <br /> Tomorrow will be your first cry 🎂💖
+            Countdown to your special surprise 🎂💖
           </p>
 
-          <div className="countdown-box">⏳ Wait until 12:00 AM</div>
+          <div className="countdown-box">⏳ Unlocks at 3:07 PM</div>
 
           <p className="timer">
             Time left:{" "}
             <span className="time-values">
-              {`${timeLeft.hours ?? "00"}h ${timeLeft.minutes ?? "00"}m ${timeLeft.seconds ?? "00"}s`}
+              {`${timeLeft.hours ?? "00"}h ${timeLeft.minutes ?? "00"}m ${
+                timeLeft.seconds ?? "00"
+              }s`}
             </span>
           </p>
         </div>
       ) : (
         <div className="unlocked-section">
           <h1 className="birthday-title">🎉 Happy Birthday Madam! 🎂</h1>
-          <p className="birthday-subtitle">Your magical day has begun! 💕</p>
+          <p className="birthday-subtitle">Your magical moment has arrived! 💕</p>
 
           <button onClick={handleOpen} className="open-button">
             Open Your Surprise 🎁
@@ -68,6 +74,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
