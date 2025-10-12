@@ -1,38 +1,80 @@
-.App {
+body {
+  margin: 0;
+  background: linear-gradient(135deg, #ffafbd, #ffc3a0);
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.birthday-container {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.form-card, .wish-card {
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 20px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  animation: fadeIn 1s ease-in;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+h1 {
+  color: #ff4081;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+input {
+  padding: 10px;
+  width: 70%;
+  border-radius: 10px;
+  border: 2px solid #ff80ab;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button {
+  background-color: #ff4081;
   color: white;
+  border: none;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover {
+  background-color: #f50057;
 }
 
-@keyframes App-logo-spin {
+p {
+  font-size: 18px;
+  margin: 20px 0;
+}
+
+.balloons {
+  font-size: 40px;
+  animation: float 2s ease-in-out infinite alternate;
+}
+
+@keyframes float {
   from {
-    transform: rotate(0deg);
+    transform: translateY(0);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateY(-20px);
   }
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
