@@ -8,26 +8,30 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    const unlockDate = new Date("2025-07-08T00:00:00"); // 🎯 Unlock time — 12:00 AM, July 8, 2025
+
     const updateCountdown = () => {
       const now = new Date();
-      const nextMidnight = new Date();
-      nextMidnight.setHours(24, 0, 0, 0);
+      const diff = unlockDate - now;
 
-      const diff = nextMidnight - now;
       if (diff <= 0) {
+        // If current time is past July 8, 2025 → permanently unlocked
         setIsUnlocked(true);
         return;
       }
 
+      // Calculate remaining time
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
       const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
       const minutes = Math.floor((diff / (1000 * 60)) % 60);
       const seconds = Math.floor((diff / 1000) % 60);
 
-      setTimeLeft({ hours, minutes, seconds });
+      setTimeLeft({ days, hours, minutes, seconds });
     };
 
     const timer = setInterval(updateCountdown, 1000);
     updateCountdown();
+
     return () => clearInterval(timer);
   }, []);
 
@@ -41,15 +45,15 @@ function App() {
         <div className="locked-section">
           <h1 className="title">Wait madam... 😊💫</h1>
           <p className="subtitle">
-            You’re not born yet! <br /> Tomorrow will be your first cry 🎂💖
+            You’re not born yet! <br /> The magic begins on <strong>8th July 2025 🎂💖</strong>
           </p>
 
-          <div className="countdown-box">⏳ Politely Revisit At 12:00 AM</div>
+          <div className="countdown-box">⏳ Countdown to unlock</div>
 
           <p className="timer">
             Time left:{" "}
             <span className="time-values">
-              {`${timeLeft.hours ?? "00"}h ${timeLeft.minutes ?? "00"}m ${timeLeft.seconds ?? "00"}s`}
+              {`${timeLeft.days ?? "00"}d ${timeLeft.hours ?? "00"}h ${timeLeft.minutes ?? "00"}m ${timeLeft.seconds ?? "00"}s`}
             </span>
           </p>
         </div>
@@ -68,6 +72,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
