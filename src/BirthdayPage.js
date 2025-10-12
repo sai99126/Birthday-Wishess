@@ -38,7 +38,7 @@ export default function BirthdayPage() {
         alt="Happy Birthday"
         className="birthday-photo"
       />
-      <h1 className="celebrate-text">🎉 Happy Birthday, Madam! 💖</h1>
+      <h1 className="celebrate-text">🎉 Happy Birthday! 💖</h1>
       <p className="wish-text">
         May your day be filled with joy, laughter, and all your favorite things! 🎂✨
       </p>

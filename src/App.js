@@ -44,7 +44,7 @@ function App() {
             You’re not born yet! <br /> Tomorrow will be your first cry 🎂💖
           </p>
 
-          <div className="countdown-box">⏳ Wait until 12:00 AM</div>
+          <div className="countdown-box">⏳ Politely Revisit At 12:00 AM</div>
 
           <p className="timer">
             Time left:{" "}
