@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import "./BirthdayPage.css";
 import birthdayImage from "./snapedit_17597754104468.jpeg.jpg";
-import musicFile from "./happybirthday.mp3"; // <-- Add your song in src folder
+import musicFile from "./audio.mp3"; // <-- Add your song in src folder
 
 export default function BirthdayPage() {
   const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
