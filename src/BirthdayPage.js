@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import "./BirthdayPage.css";
 import birthdayImage from "./snapedit_17597754104468.jpeg.jpg";
-import musicFile from "./audio.mp3"; // <-- Add your song in src folder
+import musicFile from "./audio.mp3";
 
 export default function BirthdayPage() {
-  const [windowSize, setWindowSize] = useState({ width: window.innerWidth, height: window.innerHeight });
+  const [windowSize, setWindowSize] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   useEffect(() => {
     const handleResize = () => {
@@ -14,7 +17,7 @@ export default function BirthdayPage() {
     window.addEventListener("resize", handleResize);
 
     const audio = new Audio(musicFile);
-    audio.play();
+    audio.play().catch((err) => console.log("Audio autoplay blocked:", err));
 
     return () => {
       audio.pause();
@@ -32,12 +35,15 @@ export default function BirthdayPage() {
       </div>
       <img
         src={birthdayImage}
-        alt="Happy Birthday Nandini"
+        alt="Happy Birthday"
         className="birthday-photo"
       />
       <h1 className="celebrate-text">🎉 Happy Birthday, Madam! 💖</h1>
-      <p className="wish-text">May your day be filled with joy, laughter, and all your favorite things! 🎂✨</p>
+      <p className="wish-text">
+        May your day be filled with joy, laughter, and all your favorite things! 🎂✨
+      </p>
     </div>
   );
 }
+
 

@@ -39,14 +39,12 @@ function App() {
     <div className="birthday-container">
       {!isUnlocked ? (
         <div className="locked-section">
-          <h1 className="title animate-pulse">Wait madam... 👶💫</h1>
+          <h1 className="title">Wait madam... 👶💫</h1>
           <p className="subtitle">
             You’re not born yet! <br /> Tomorrow will be your first cry 🎂💖
           </p>
 
-          <div className="countdown-box">
-            ⏳ Wait until 12:00 AM
-          </div>
+          <div className="countdown-box">⏳ Wait until 12:00 AM</div>
 
           <p className="timer">
             Time left:{" "}
@@ -70,6 +68,7 @@ function App() {
 }
 
 export default App;
+
 
 
 
