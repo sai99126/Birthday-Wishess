@@ -9,7 +9,6 @@ export default function BirthdayPage() {
     width: window.innerWidth,
     height: window.innerHeight,
   });
-
   const [showLetters, setShowLetters] = useState([]);
 
   useEffect(() => {
@@ -21,12 +20,12 @@ export default function BirthdayPage() {
     const audio = new Audio(musicFile);
     audio.play().catch((err) => console.log("Audio autoplay blocked:", err));
 
-    // Animate each letter appearing one by one
+    // Animate name letters falling
     const name = "NANDINI".split("");
     name.forEach((letter, i) => {
       setTimeout(() => {
         setShowLetters((prev) => [...prev, letter]);
-      }, i * 500); // delay between letters
+      }, i * 600); // slight delay for each letter
     });
 
     return () => {
@@ -44,12 +43,6 @@ export default function BirthdayPage() {
         recycle={true}
       />
 
-      <div className="balloons">
-        <div className="balloon red"></div>
-        <div className="balloon blue"></div>
-        <div className="balloon yellow"></div>
-      </div>
-
       <img
         src={birthdayImage}
         alt="Happy Birthday"
@@ -63,7 +56,7 @@ export default function BirthdayPage() {
 
       <div className="name-container">
         {showLetters.map((letter, index) => (
-          <span key={index} className="falling-letter">
+          <span key={index} className="falling-letter" style={{ animationDelay: `${index * 0.3}s` }}>
             {letter}
           </span>
         ))}
@@ -71,6 +64,7 @@ export default function BirthdayPage() {
     </div>
   );
 }
+
 
 
 

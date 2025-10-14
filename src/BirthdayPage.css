@@ -1,87 +1,37 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(180deg, #ffdce3, #ffeef3);
   overflow: hidden;
 }
 
+/* Background: soft glowing pink-white */
 .birthday-page {
   text-align: center;
   height: 100vh;
+  background: radial-gradient(circle at top, #fff5f8 0%, #ffdce6 40%, #ffc5d9 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   position: relative;
-  background: linear-gradient(180deg, #ffdce3, #ffeef3);
   overflow: hidden;
 }
 
-/* Balloons */
-.balloons {
-  position: absolute;
-  top: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 40px;
-  z-index: 1;
-}
-
-.balloon {
-  width: 60px;
-  height: 80px;
-  border-radius: 50%;
-  position: relative;
-  animation: float 4s ease-in-out infinite;
-}
-
-.balloon::after {
-  content: "";
-  position: absolute;
-  width: 2px;
-  height: 50px;
-  background: #555;
-  top: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.red {
-  background: #ff8fab;
-  animation-delay: 0s;
-}
-.blue {
-  background: #a5d8ff;
-  animation-delay: 1s;
-}
-.yellow {
-  background: #ffe066;
-  animation-delay: 2s;
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0) scale(1);
-  }
-  50% {
-    transform: translateY(-20px) scale(1.05);
-  }
-  100% {
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* Birthday Photo */
+/* Birthday Image */
 .birthday-photo {
   width: 220px;
   height: 220px;
   border-radius: 50%;
   object-fit: cover;
-  margin-top: 120px;
-  box-shadow: 0 0 20px #ffb6c1;
-  z-index: 2;
+  box-shadow: 0 0 25px #ffb6c1, 0 0 40px #ffe6ef;
+  border: 3px solid #fff;
+  margin-bottom: 25px;
+  animation: fadeIn 2s ease-in-out;
 }
 
-/* Texts */
+/* Text styles */
 .celebrate-text {
-  font-size: 2.3rem;
+  font-size: 2.5rem;
   color: #d63384;
   text-shadow: 0 0 10px #ffaad4, 0 0 20px #ff66b2;
   animation: glow 1.5s ease-in-out infinite alternate;
@@ -89,43 +39,49 @@ body {
 
 @keyframes glow {
   from {
-    text-shadow: 0 0 10px #ffaad4, 0 0 20px #ff66b2;
+    text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff66b2;
   }
   to {
-    text-shadow: 0 0 25px #ff99cc, 0 0 35px #ff3385;
+    text-shadow: 0 0 25px #ff99cc, 0 0 40px #ff3385;
   }
 }
 
 .wish-text {
   font-size: 1.2rem;
-  color: #6b1a42;
+  color: #5b0a24;
+  margin-top: 10px;
   margin-bottom: 60px;
+  text-shadow: 0 0 8px #ffd1dc;
 }
 
-/* Falling Letters Animation */
+/* Falling shiny letters for name */
 .name-container {
   position: absolute;
-  bottom: 40px;
-  width: 100%;
+  bottom: 50px;
   display: flex;
   justify-content: center;
-  gap: 10px;
+  gap: 12px;
   z-index: 3;
 }
 
 .falling-letter {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #ff4d94;
-  text-shadow: 0 0 10px #ffb6c1, 0 0 25px #ff66b2;
-  animation: fallDown 1s ease-out forwards, shine 1.5s infinite alternate;
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ff2e88;
+  text-shadow: 0 0 10px #ffcce0, 0 0 25px #ff66b2;
   opacity: 0;
+  transform: translateY(-100vh);
+  animation: fallDown 1.2s ease-out forwards, shine 2s infinite alternate;
 }
 
 @keyframes fallDown {
   0% {
-    transform: translateY(-100vh);
     opacity: 0;
+    transform: translateY(-100vh) scale(1.2);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(10px) scale(1);
   }
   100% {
     transform: translateY(0);
@@ -134,12 +90,25 @@ body {
 }
 
 @keyframes shine {
-  0% {
-    text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff80bf;
+  from {
+    text-shadow: 0 0 10px #ffb6c1, 0 0 25px #ff80bf;
   }
-  100% {
-    text-shadow: 0 0 20px #ff99cc, 0 0 30px #ff3385;
+  to {
+    text-shadow: 0 0 25px #ff99cc, 0 0 40px #ff3385;
   }
 }
+
+/* Smooth fade-in for image */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
 
