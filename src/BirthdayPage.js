@@ -9,7 +9,6 @@ export default function BirthdayPage() {
     width: window.innerWidth,
     height: window.innerHeight,
   });
-  const [showLetters, setShowLetters] = useState([]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -19,14 +18,6 @@ export default function BirthdayPage() {
 
     const audio = new Audio(musicFile);
     audio.play().catch((err) => console.log("Audio autoplay blocked:", err));
-
-    // Animate name letters falling
-    const name = "NANDINI".split("");
-    name.forEach((letter, i) => {
-      setTimeout(() => {
-        setShowLetters((prev) => [...prev, letter]);
-      }, i * 600); // slight delay for each letter
-    });
 
     return () => {
       audio.pause();
@@ -39,7 +30,7 @@ export default function BirthdayPage() {
       <Confetti
         width={windowSize.width}
         height={windowSize.height}
-        numberOfPieces={250}
+        numberOfPieces={200}
         recycle={true}
       />
 
@@ -53,14 +44,6 @@ export default function BirthdayPage() {
       <p className="wish-text">
         May your day be filled with joy, laughter, and all your favorite things! 🎂✨
       </p>
-
-      <div className="name-container">
-        {showLetters.map((letter, index) => (
-          <span key={index} className="falling-letter" style={{ animationDelay: `${index * 0.3}s` }}>
-            {letter}
-          </span>
-        ))}
-      </div>
     </div>
   );
 }

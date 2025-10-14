@@ -1,108 +1,66 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #ffe6eb, #ffd6e8, #ffeef4);
   overflow: hidden;
 }
 
-/* Background: soft glowing pink-white */
 .birthday-page {
   text-align: center;
   height: 100vh;
-  background: radial-gradient(circle at top, #fff5f8 0%, #ffdce6 40%, #ffc5d9 100%);
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
-  overflow: hidden;
+  background: linear-gradient(180deg, #ffe6eb, #ffd6e8, #ffeef4);
 }
 
 /* Birthday Image */
 .birthday-photo {
-  width: 220px;
-  height: 220px;
+  width: 230px;
+  height: 230px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 25px #ffb6c1, 0 0 40px #ffe6ef;
-  border: 3px solid #fff;
   margin-bottom: 25px;
+  box-shadow: 0 0 30px #ffb6c1, 0 0 60px #ffd1dc;
+  border: 3px solid white;
   animation: fadeIn 2s ease-in-out;
 }
 
-/* Text styles */
+/* Heading */
 .celebrate-text {
-  font-size: 2.5rem;
+  font-size: 2.6rem;
   color: #d63384;
-  text-shadow: 0 0 10px #ffaad4, 0 0 20px #ff66b2;
-  animation: glow 1.5s ease-in-out infinite alternate;
+  text-shadow: 0 0 10px #ffb6c1, 0 0 25px #ff66b2;
+  margin-bottom: 10px;
+  animation: glow 2s ease-in-out infinite alternate;
 }
 
+/* Wish Text */
+.wish-text {
+  font-size: 1.3rem;
+  color: #7a1c47;
+  text-shadow: 0 0 10px #ffd6e8;
+  max-width: 600px;
+  line-height: 1.6;
+  padding: 0 20px;
+}
+
+/* Animations */
 @keyframes glow {
   from {
-    text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff66b2;
+    text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff80bf;
   }
   to {
     text-shadow: 0 0 25px #ff99cc, 0 0 40px #ff3385;
   }
 }
 
-.wish-text {
-  font-size: 1.2rem;
-  color: #5b0a24;
-  margin-top: 10px;
-  margin-bottom: 60px;
-  text-shadow: 0 0 8px #ffd1dc;
-}
-
-/* Falling shiny letters for name */
-.name-container {
-  position: absolute;
-  bottom: 50px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  z-index: 3;
-}
-
-.falling-letter {
-  font-size: 3rem;
-  font-weight: 700;
-  color: #ff2e88;
-  text-shadow: 0 0 10px #ffcce0, 0 0 25px #ff66b2;
-  opacity: 0;
-  transform: translateY(-100vh);
-  animation: fallDown 1.2s ease-out forwards, shine 2s infinite alternate;
-}
-
-@keyframes fallDown {
-  0% {
-    opacity: 0;
-    transform: translateY(-100vh) scale(1.2);
-  }
-  80% {
-    opacity: 1;
-    transform: translateY(10px) scale(1);
-  }
-  100% {
-    transform: translateY(0);
-    opacity: 1;
-  }
-}
-
-@keyframes shine {
-  from {
-    text-shadow: 0 0 10px #ffb6c1, 0 0 25px #ff80bf;
-  }
-  to {
-    text-shadow: 0 0 25px #ff99cc, 0 0 40px #ff3385;
-  }
-}
-
-/* Smooth fade-in for image */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.8);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
