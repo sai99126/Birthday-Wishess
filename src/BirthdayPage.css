@@ -1,76 +1,145 @@
-.birthday-page {
-  background: linear-gradient(135deg, #ff99cc, #9966ff);
-  color: white;
-  min-height: 100vh;
-  text-align: center;
-  padding: 40px;
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(180deg, #ffdce3, #ffeef3);
   overflow: hidden;
+}
+
+.birthday-page {
+  text-align: center;
+  height: 100vh;
   position: relative;
+  background: linear-gradient(180deg, #ffdce3, #ffeef3);
+  overflow: hidden;
 }
 
-.birthday-photo {
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 6px solid #fff;
-  margin-top: 60px;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
-  animation: float 3s ease-in-out infinite;
-}
-
-.celebrate-text {
-  font-size: 2.8rem;
-  font-weight: 800;
-  margin-top: 30px;
-}
-
-.wish-text {
-  font-size: 1.3rem;
-  margin-top: 15px;
-  opacity: 0.9;
-}
-
+/* Balloons */
 .balloons {
   position: absolute;
   top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  pointer-events: none;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 40px;
+  z-index: 1;
 }
 
 .balloon {
-  width: 40px;
-  height: 60px;
+  width: 60px;
+  height: 80px;
   border-radius: 50%;
-  position: absolute;
-  bottom: -100px;
-  animation: rise 8s linear infinite;
+  position: relative;
+  animation: float 4s ease-in-out infinite;
 }
 
 .balloon::after {
   content: "";
   position: absolute;
-  bottom: -10px;
-  left: 50%;
   width: 2px;
-  height: 40px;
-  background: white;
+  height: 50px;
+  background: #555;
+  top: 80px;
+  left: 50%;
   transform: translateX(-50%);
 }
 
-.red { background: #ff4d4d; left: 20%; animation-delay: 0s; }
-.blue { background: #4da6ff; left: 50%; animation-delay: 2s; }
-.yellow { background: #ffff66; left: 80%; animation-delay: 4s; }
-
-@keyframes rise {
-  0% { transform: translateY(100vh); opacity: 1; }
-  100% { transform: translateY(-120vh); opacity: 0; }
+.red {
+  background: #ff8fab;
+  animation-delay: 0s;
+}
+.blue {
+  background: #a5d8ff;
+  animation-delay: 1s;
+}
+.yellow {
+  background: #ffe066;
+  animation-delay: 2s;
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+  0% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.05);
+  }
+  100% {
+    transform: translateY(0) scale(1);
+  }
 }
+
+/* Birthday Photo */
+.birthday-photo {
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-top: 120px;
+  box-shadow: 0 0 20px #ffb6c1;
+  z-index: 2;
+}
+
+/* Texts */
+.celebrate-text {
+  font-size: 2.3rem;
+  color: #d63384;
+  text-shadow: 0 0 10px #ffaad4, 0 0 20px #ff66b2;
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #ffaad4, 0 0 20px #ff66b2;
+  }
+  to {
+    text-shadow: 0 0 25px #ff99cc, 0 0 35px #ff3385;
+  }
+}
+
+.wish-text {
+  font-size: 1.2rem;
+  color: #6b1a42;
+  margin-bottom: 60px;
+}
+
+/* Falling Letters Animation */
+.name-container {
+  position: absolute;
+  bottom: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  z-index: 3;
+}
+
+.falling-letter {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #ff4d94;
+  text-shadow: 0 0 10px #ffb6c1, 0 0 25px #ff66b2;
+  animation: fallDown 1s ease-out forwards, shine 1.5s infinite alternate;
+  opacity: 0;
+}
+
+@keyframes fallDown {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes shine {
+  0% {
+    text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff80bf;
+  }
+  100% {
+    text-shadow: 0 0 20px #ff99cc, 0 0 30px #ff3385;
+  }
+}
+
 

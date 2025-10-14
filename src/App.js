@@ -67,7 +67,7 @@ function App() {
       ) : (
         <div className="unlocked-section">
           <h1 className="birthday-title glow-text">
-            🎉 Happy Birthday Madam! 🎂
+            🎉 Happy Birthday Madam! 
           </h1>
           <p className="birthday-subtitle">Your magical day has begun! 💕</p>
 

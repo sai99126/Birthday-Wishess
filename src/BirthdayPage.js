@@ -10,6 +10,8 @@ export default function BirthdayPage() {
     height: window.innerHeight,
   });
 
+  const [showLetters, setShowLetters] = useState([]);
+
   useEffect(() => {
     const handleResize = () => {
       setWindowSize({ width: window.innerWidth, height: window.innerHeight });
@@ -19,6 +21,14 @@ export default function BirthdayPage() {
     const audio = new Audio(musicFile);
     audio.play().catch((err) => console.log("Audio autoplay blocked:", err));
 
+    // Animate each letter appearing one by one
+    const name = "NANDINI".split("");
+    name.forEach((letter, i) => {
+      setTimeout(() => {
+        setShowLetters((prev) => [...prev, letter]);
+      }, i * 500); // delay between letters
+    });
+
     return () => {
       audio.pause();
       window.removeEventListener("resize", handleResize);
@@ -27,23 +37,40 @@ export default function BirthdayPage() {
 
   return (
     <div className="birthday-page">
-      <Confetti width={windowSize.width} height={windowSize.height} numberOfPieces={300} recycle={true} />
+      <Confetti
+        width={windowSize.width}
+        height={windowSize.height}
+        numberOfPieces={250}
+        recycle={true}
+      />
+
       <div className="balloons">
         <div className="balloon red"></div>
         <div className="balloon blue"></div>
         <div className="balloon yellow"></div>
       </div>
+
       <img
         src={birthdayImage}
         alt="Happy Birthday"
         className="birthday-photo"
       />
+
       <h1 className="celebrate-text">🎉 Happy Birthday! 💖</h1>
       <p className="wish-text">
         May your day be filled with joy, laughter, and all your favorite things! 🎂✨
       </p>
+
+      <div className="name-container">
+        {showLetters.map((letter, index) => (
+          <span key={index} className="falling-letter">
+            {letter}
+          </span>
+        ))}
+      </div>
     </div>
   );
 }
+
 
 
