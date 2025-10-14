@@ -30,25 +30,28 @@ export default function BirthdayPage() {
       <Confetti
         width={windowSize.width}
         height={windowSize.height}
-        numberOfPieces={200}
+        numberOfPieces={180}
         recycle={true}
       />
 
-      <div className="birthday-box">
+      <div className="birthday-card">
+        <h1 className="card-title">Happy Birthday My Love! 💖</h1>
         <img
           src={birthdayImage}
           alt="Happy Birthday"
           className="birthday-photo"
         />
-
-        <h1 className="celebrate-text">🎉 Happy Birthday! 💖</h1>
-        <p className="wish-text">
-          May your day be filled with joy, laughter, and all your favorite things! 🎂✨
+        <p className="card-subtitle">
+          To the most amazing woman in my life 💐
+        </p>
+        <p className="card-message">
+          “Every moment with you is a gift, and today we celebrate the greatest gift of all — YOU!” ✨
         </p>
       </div>
     </div>
   );
 }
+
 
 
 

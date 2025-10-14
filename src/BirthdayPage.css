@@ -1,78 +1,79 @@
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
-  background: linear-gradient(180deg, #ffe6eb, #ffd6e8, #ffeef4);
+  background: #ffdce5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
   overflow: hidden;
 }
 
 .birthday-page {
-  text-align: center;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(180deg, #ffe6eb, #ffd6e8, #ffeef4);
   position: relative;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(180deg, #ffdce5, #ffe6eb);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-/* 🎁 Glowing Box */
-.birthday-box {
-  background: rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(10px);
-  border-radius: 25px;
-  padding: 40px 60px;
-  box-shadow: 0 0 30px rgba(255, 182, 193, 0.6), 0 0 60px rgba(255, 105, 180, 0.3);
+/* 🎀 Card box */
+.birthday-card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(255, 182, 193, 0.5);
   text-align: center;
-  max-width: 600px;
+  padding: 50px 40px;
+  max-width: 500px;
   width: 90%;
-  animation: boxGlow 3s ease-in-out infinite alternate;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-/* ✨ Image */
+/* 💕 Title */
+.card-title {
+  font-family: "Great Vibes", cursive;
+  font-size: 2.6rem;
+  color: #d63384;
+  margin-bottom: 15px;
+  text-shadow: 0 0 10px #ffc1cc;
+}
+
+/* 🌸 Image */
 .birthday-photo {
-  width: 200px;
-  height: 200px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   object-fit: cover;
-  box-shadow: 0 0 25px #ffb6c1, 0 0 40px #ffd1dc;
-  border: 3px solid white;
-  margin-bottom: 25px;
-  animation: fadeIn 2s ease-in-out;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px #ffd1dc;
+  border: 3px solid #ffeef4;
 }
 
-/* 💖 Title */
-.celebrate-text {
-  font-size: 2.5rem;
-  color: #d63384;
-  text-shadow: 0 0 10px #ffb6c1, 0 0 25px #ff66b2;
-  animation: glow 2s ease-in-out infinite alternate;
+/* ✨ Subtitle */
+.card-subtitle {
+  font-size: 1.3rem;
+  color: #a61a5b;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
-/* 🎂 Wish */
-.wish-text {
-  font-size: 1.2rem;
-  color: #7a1c47;
-  text-shadow: 0 0 10px #ffd6e8;
+/* 💌 Message */
+.card-message {
+  font-size: 1.1rem;
+  color: #5a0e2e;
   line-height: 1.6;
-  max-width: 500px;
-  margin: 0 auto;
+  margin-top: 10px;
+  font-style: italic;
+  padding: 0 10px;
 }
 
-/* 🌈 Animations */
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff80bf;
-  }
-  to {
-    text-shadow: 0 0 25px #ff99cc, 0 0 40px #ff3385;
-  }
-}
-
+/* 🌟 Animation */
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: scale(0.9);
+    transform: scale(0.95);
   }
   to {
     opacity: 1;
@@ -80,14 +81,6 @@ body {
   }
 }
 
-@keyframes boxGlow {
-  from {
-    box-shadow: 0 0 20px rgba(255, 182, 193, 0.4), 0 0 40px rgba(255, 105, 180, 0.2);
-  }
-  to {
-    box-shadow: 0 0 40px rgba(255, 182, 193, 0.8), 0 0 70px rgba(255, 105, 180, 0.4);
-  }
-}
 
 
 
