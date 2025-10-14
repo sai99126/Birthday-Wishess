@@ -8,46 +8,58 @@ body {
 .birthday-page {
   text-align: center;
   height: 100vh;
-  position: relative;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   background: linear-gradient(180deg, #ffe6eb, #ffd6e8, #ffeef4);
+  position: relative;
 }
 
-/* Birthday Image */
+/* 🎁 Glowing Box */
+.birthday-box {
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  padding: 40px 60px;
+  box-shadow: 0 0 30px rgba(255, 182, 193, 0.6), 0 0 60px rgba(255, 105, 180, 0.3);
+  text-align: center;
+  max-width: 600px;
+  width: 90%;
+  animation: boxGlow 3s ease-in-out infinite alternate;
+}
+
+/* ✨ Image */
 .birthday-photo {
-  width: 230px;
-  height: 230px;
+  width: 200px;
+  height: 200px;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 25px;
-  box-shadow: 0 0 30px #ffb6c1, 0 0 60px #ffd1dc;
+  box-shadow: 0 0 25px #ffb6c1, 0 0 40px #ffd1dc;
   border: 3px solid white;
+  margin-bottom: 25px;
   animation: fadeIn 2s ease-in-out;
 }
 
-/* Heading */
+/* 💖 Title */
 .celebrate-text {
-  font-size: 2.6rem;
+  font-size: 2.5rem;
   color: #d63384;
   text-shadow: 0 0 10px #ffb6c1, 0 0 25px #ff66b2;
-  margin-bottom: 10px;
   animation: glow 2s ease-in-out infinite alternate;
+  margin-bottom: 10px;
 }
 
-/* Wish Text */
+/* 🎂 Wish */
 .wish-text {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: #7a1c47;
   text-shadow: 0 0 10px #ffd6e8;
-  max-width: 600px;
   line-height: 1.6;
-  padding: 0 20px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-/* Animations */
+/* 🌈 Animations */
 @keyframes glow {
   from {
     text-shadow: 0 0 10px #ffb6c1, 0 0 20px #ff80bf;
@@ -67,6 +79,16 @@ body {
     transform: scale(1);
   }
 }
+
+@keyframes boxGlow {
+  from {
+    box-shadow: 0 0 20px rgba(255, 182, 193, 0.4), 0 0 40px rgba(255, 105, 180, 0.2);
+  }
+  to {
+    box-shadow: 0 0 40px rgba(255, 182, 193, 0.8), 0 0 70px rgba(255, 105, 180, 0.4);
+  }
+}
+
 
 
 

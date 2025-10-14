@@ -34,19 +34,22 @@ export default function BirthdayPage() {
         recycle={true}
       />
 
-      <img
-        src={birthdayImage}
-        alt="Happy Birthday"
-        className="birthday-photo"
-      />
+      <div className="birthday-box">
+        <img
+          src={birthdayImage}
+          alt="Happy Birthday"
+          className="birthday-photo"
+        />
 
-      <h1 className="celebrate-text">🎉 Happy Birthday! 💖</h1>
-      <p className="wish-text">
-        May your day be filled with joy, laughter, and all your favorite things! 🎂✨
-      </p>
+        <h1 className="celebrate-text">🎉 Happy Birthday! 💖</h1>
+        <p className="wish-text">
+          May your day be filled with joy, laughter, and all your favorite things! 🎂✨
+        </p>
+      </div>
     </div>
   );
 }
+
 
 
 
