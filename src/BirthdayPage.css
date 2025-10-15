@@ -1,85 +1,121 @@
-body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: #ffdce5;
+/* 🎁 Horizontal scroll container */
+.slides-wrapper {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  overflow: hidden;
-}
-
-.birthday-page {
-  position: relative;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(180deg, #ffdce5, #ffe6eb);
-  display: flex;
   justify-content: center;
   align-items: center;
+  gap: 40px; /* space between cards */
+  scroll-behavior: smooth;
+  padding: 40px 0;
 }
 
-/* 🎀 Card box */
+.slides-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+/* 🎀 Each card (slide) */
 .birthday-card {
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(255, 182, 193, 0.5);
+  background: #ffffff;
+  border-radius: 25px;
+  box-shadow: 0 10px 25px rgba(255, 182, 193, 0.6);
   text-align: center;
-  padding: 50px 40px;
-  max-width: 500px;
-  width: 90%;
-  animation: fadeIn 1.5s ease-in-out;
+  padding: 30px 20px;
+  flex: 0 0 80%;       /* controls width of each box */
+  max-width: 420px;    /* keeps it box-shaped, not full width */
+  height: 520px;       /* fixed height box */
+  margin: auto;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.8s ease;
 }
 
-/* 💕 Title */
+/* 🎇 Title shimmer blink */
 .card-title {
   font-family: "Great Vibes", cursive;
-  font-size: 2.6rem;
-  color: #d63384;
+  font-size: 2.8rem;
+  color: #ff66b2;
   margin-bottom: 15px;
-  text-shadow: 0 0 10px #ffc1cc;
+  text-shadow: 0 0 15px #ffb6c1, 0 0 25px #ffcce0, 0 0 40px #ffe6f2;
+  animation: blinkGlow 2s infinite alternate ease-in-out;
 }
 
-/* 🌸 Image */
+/* 💫 Blink animation */
+@keyframes blinkGlow {
+  0% {
+    opacity: 1;
+    text-shadow: 0 0 10px #ff99cc, 0 0 20px #ffb6c1, 0 0 40px #ffcce0;
+  }
+  50% {
+    opacity: 0.7;
+    text-shadow: 0 0 25px #ff99cc, 0 0 45px #ff66b2, 0 0 70px #ffb6c1;
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 15px #ff66b2, 0 0 30px #ff99cc, 0 0 50px #ffe6f2;
+  }
+}
+
+/* 🎂 Image */
 .birthday-photo {
-  width: 160px;
-  height: 160px;
-  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  border-radius: 20px;
   object-fit: cover;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   box-shadow: 0 0 20px #ffd1dc;
   border: 3px solid #ffeef4;
 }
 
-/* ✨ Subtitle */
-.card-subtitle {
-  font-size: 1.3rem;
-  color: #a61a5b;
-  margin-bottom: 10px;
-  font-weight: 600;
+/* 🎈 Balloons rising from bottom */
+.balloons {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  pointer-events: none;
 }
 
-/* 💌 Message */
-.card-message {
-  font-size: 1.1rem;
-  color: #5a0e2e;
-  line-height: 1.6;
-  margin-top: 10px;
-  font-style: italic;
-  padding: 0 10px;
+.balloon {
+  width: 40px;
+  height: 55px;
+  border-radius: 50%;
+  position: relative;
+  animation: floatUp 6s ease-in-out infinite;
 }
 
-/* 🌟 Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
+.balloon::after {
+  content: "";
+  width: 2px;
+  height: 40px;
+  background: #555;
+  position: absolute;
+  bottom: -40px;
+  left: 50%;
+  transform: translateX(-50%);
 }
+
+.balloon.red { background: #ff4d6d; animation-delay: 0s; }
+.balloon.blue { background: #6ec1e4; animation-delay: 1.5s; }
+.balloon.yellow { background: #f8e473; animation-delay: 3s; }
+.balloon.green { background: #77dd77; animation-delay: 4.5s; }
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) scale(1); opacity: 1; }
+  100% { transform: translateY(-120vh) scale(1.1); opacity: 0; }
+}
+
+
+
+
 
 
 
