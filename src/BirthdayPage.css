@@ -1,120 +1,129 @@
-/* 🎁 Horizontal scroll container */
-.slides-wrapper {
-  display: flex;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  width: 100%;
+/* 🎂 General page styling */
+.birthday-page {
+  position: relative;
+  width: 100vw;
   height: 100vh;
-  justify-content: center;
-  align-items: center;
-  gap: 40px; /* space between cards */
-  scroll-behavior: smooth;
-  padding: 40px 0;
-}
-
-.slides-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-/* 🎀 Each card (slide) */
-.birthday-card {
-  background: #ffffff;
-  border-radius: 25px;
-  box-shadow: 0 10px 25px rgba(255, 182, 193, 0.6);
-  text-align: center;
-  padding: 30px 20px;
-  flex: 0 0 80%;       /* controls width of each box */
-  max-width: 420px;    /* keeps it box-shaped, not full width */
-  height: 520px;       /* fixed height box */
-  margin: auto;
-  scroll-snap-align: center;
+  background: linear-gradient(to bottom, #ffd6e8, #ffe6f2);
+  overflow: hidden;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  transition: transform 0.8s ease;
+  justify-content: center;
 }
 
-/* 🎇 Title shimmer blink */
-.card-title {
-  font-family: "Great Vibes", cursive;
-  font-size: 2.8rem;
-  color: #ff66b2;
-  margin-bottom: 15px;
-  text-shadow: 0 0 15px #ffb6c1, 0 0 25px #ffcce0, 0 0 40px #ffe6f2;
-  animation: blinkGlow 2s infinite alternate ease-in-out;
-}
-
-/* 💫 Blink animation */
-@keyframes blinkGlow {
-  0% {
-    opacity: 1;
-    text-shadow: 0 0 10px #ff99cc, 0 0 20px #ffb6c1, 0 0 40px #ffcce0;
-  }
-  50% {
-    opacity: 0.7;
-    text-shadow: 0 0 25px #ff99cc, 0 0 45px #ff66b2, 0 0 70px #ffb6c1;
-  }
-  100% {
-    opacity: 1;
-    text-shadow: 0 0 15px #ff66b2, 0 0 30px #ff99cc, 0 0 50px #ffe6f2;
-  }
-}
-
-/* 🎂 Image */
-.birthday-photo {
-  width: 250px;
-  height: 250px;
-  border-radius: 20px;
-  object-fit: cover;
-  margin-bottom: 15px;
-  box-shadow: 0 0 20px #ffd1dc;
-  border: 3px solid #ffeef4;
-}
-
-/* 🎈 Balloons rising from bottom */
+/* 🎈 Balloon decorations (optional aesthetic) */
 .balloons {
   position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
+  top: 0;
   width: 100%;
-  display: flex;
-  justify-content: space-around;
+  height: 100%;
   pointer-events: none;
+  overflow: hidden;
 }
 
 .balloon {
   width: 40px;
   height: 55px;
   border-radius: 50%;
-  position: relative;
-  animation: floatUp 6s ease-in-out infinite;
-}
-
-.balloon::after {
-  content: "";
-  width: 2px;
-  height: 40px;
-  background: #555;
   position: absolute;
-  bottom: -40px;
-  left: 50%;
-  transform: translateX(-50%);
+  animation: float 6s ease-in-out infinite;
+  bottom: -80px;
+  opacity: 0.7;
 }
 
-.balloon.red { background: #ff4d6d; animation-delay: 0s; }
-.balloon.blue { background: #6ec1e4; animation-delay: 1.5s; }
-.balloon.yellow { background: #f8e473; animation-delay: 3s; }
-.balloon.green { background: #77dd77; animation-delay: 4.5s; }
+.balloon.red { background: #ff6b6b; left: 10%; animation-delay: 0s; }
+.balloon.blue { background: #4dabf7; left: 40%; animation-delay: 1s; }
+.balloon.yellow { background: #ffd43b; left: 70%; animation-delay: 2s; }
+.balloon.green { background: #69db7c; left: 85%; animation-delay: 3s; }
 
-@keyframes floatUp {
-  0% { transform: translateY(100vh) scale(1); opacity: 1; }
-  100% { transform: translateY(-120vh) scale(1.1); opacity: 0; }
+@keyframes float {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-120vh); }
+}
+
+/* 🖼️ Carousel setup */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+}
+
+.card {
+  flex: none;
+  width: 100%;
+  height: 100%;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  transition: transform 0.4s ease, filter 0.4s ease;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* 🔥 Visible slide */
+.card.active {
+  transform: scale(1);
+  filter: blur(0);
+}
+
+/* 💤 Inactive slides slightly blurred */
+.card.blurred {
+  transform: scale(0.9);
+  filter: blur(3px);
+}
+
+/* 🖼️ Image styling */
+.card-img {
+  width: 300px;
+  height: 300px;
+  border-radius: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+}
+
+/* ✨ Text styles */
+.card-title {
+  font-size: 2rem;
+  color: #ff1493;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.4);
+}
+
+.card-text {
+  font-size: 1.2rem;
+  color: #555;
+}
+/* 🧭 Arrow indicator */
+.arrow-indicator {
+  position: absolute;
+  bottom: 30px;
+  right: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1s ease-in-out;
+  z-index: 10;
+}
+
+.arrow {
+  font-size: 2rem;
+  color: #ff1493;
+  animation: bounceArrow 1.2s infinite;
+  text-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
 }
 
 
-
+/* Fade in animation for subtle appearance */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
 
 

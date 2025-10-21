@@ -1,15 +1,29 @@
 import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import "./BirthdayPage.css";
-import birthdayImage from "./snapedit_17597754104468.jpeg.jpg";
-import catImage from "./cat.jpg.png";
 import musicFile from "./audio.mp3";
+
+// 🖼️ Import 5 images for the slides
+import img1 from "./snapedit_17597754104468.jpeg.jpg";
+import img2 from "./cat.jpg.png";
+import img3 from "./slide3.jpg";
+import img4 from "./slide4.jpg";
+import img5 from "./slide5.jpg";
 
 export default function BirthdayPage() {
   const [windowSize, setWindowSize] = useState({
     width: window.innerWidth,
     height: window.innerHeight,
   });
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const slides = [
+    { title: "🎉 Happy Birthday Nandini! 💖", img: img1, msg: "To the most amazing person ever 💕" },
+    { title: "🐾 Many More Happy Returns! 🎂", img: img2, msg: "May your days be filled with laughter 💗" },
+    { title: "🌸 You Shine Bright!", img: img3, msg: "Your smile lights up every room ✨" },
+    { title: "🌈 Keep Being You!", img: img4, msg: "You make life so colorful 🌼" },
+    { title: "💫 Forever Special!", img: img5, msg: "Always stay this wonderful 💕" },
+  ];
 
   useEffect(() => {
     const handleResize = () => {
@@ -18,7 +32,7 @@ export default function BirthdayPage() {
     window.addEventListener("resize", handleResize);
 
     const audio = new Audio(musicFile);
-    audio.play().catch((err) => console.log("Audio autoplay blocked:", err));
+    audio.play().catch(() => console.log("Autoplay blocked"));
 
     return () => {
       audio.pause();
@@ -26,16 +40,25 @@ export default function BirthdayPage() {
     };
   }, []);
 
+  // Swipe effect handler
+  const handleScroll = (e) => {
+    const scrollLeft = e.target.scrollLeft;
+    const cardWidth = e.target.clientWidth;
+    const index = Math.round(scrollLeft / cardWidth);
+    setActiveIndex(index);
+  };
+
   return (
     <div className="birthday-page">
+      {/* Confetti 🎊 */}
       <Confetti
         width={windowSize.width}
         height={windowSize.height}
-        numberOfPieces={250}
+        numberOfPieces={200}
         recycle={true}
       />
 
-      {/* 🎈 Balloons rising from bottom */}
+      {/* Balloons 🎈 */}
       <div className="balloons">
         <div className="balloon red"></div>
         <div className="balloon blue"></div>
@@ -43,35 +66,30 @@ export default function BirthdayPage() {
         <div className="balloon green"></div>
       </div>
 
-      {/* 🎁 Swipeable Slides */}
-      <div className="slides-wrapper">
-        {/* First Box */}
-        <div className="birthday-card">
-          <h1 className="card-title">🎉 Happy Birthday Nandini! 💖</h1>
-          <img src={birthdayImage} alt="Birthday" className="birthday-photo" />
-          <p className="card-subtitle">To the most amazing person ever 💕</p>
-          <p className="card-message">
-            “Every moment with you is a gift, and today we celebrate the
-            greatest gift of all — YOU!”
-          </p>
-        </div>
-
-        {/* Second Box */}
-        <div className="birthday-card">
-          <img src={catImage} alt="Cute Cat" className="birthday-photo" />
-          <h1 className="card-title">🐾 Many More Happy Returns of the Day! 🎂</h1>
-          <p className="card-message">
-            “May your days be filled with purrs, laughter, and endless joy.
-            You’re loved more than you know 💗”
-          </p>
-        </div>
+      {/* Slides Carousel */}
+      <div className="carousel" onScroll={handleScroll}>
+        {slides.map((slide, i) => (
+          <div
+            key={i}
+            className={`card ${i === activeIndex ? "active" : "blurred"}`}
+          >
+            <h1 className="card-title">{slide.title}</h1>
+            <img src={slide.img} alt={`slide-${i}`} className="card-img" />
+            <p className="card-text">{slide.msg}</p>
+          </div>
+        ))}
       </div>
+      {/* ➡️ Arrow indicator (visible until last slide) */}
+{activeIndex < slides.length - 1 && (
+  <div className="arrow-indicator">
+    <span className="arrow">→</span>
+  
+  </div>
+)}
+
     </div>
   );
 }
-
-
-
 
 
 
