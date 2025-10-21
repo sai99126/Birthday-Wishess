@@ -1,16 +1,19 @@
 {
   "files": {
-    "main.css": "/Birthday-Wishess/static/css/main.d7f6b6c6.css",
-    "main.js": "/Birthday-Wishess/static/js/main.4ef39da5.js",
+    "main.css": "/Birthday-Wishess/static/css/main.157c2bf1.css",
+    "main.js": "/Birthday-Wishess/static/js/main.db404972.js",
     "static/media/audio.mp3": "/Birthday-Wishess/static/media/audio.938586a8383a5b363e3b.mp3",
     "static/media/cat.jpg.png": "/Birthday-Wishess/static/media/cat.jpg.365bc0f8d238dd046328.png",
+    "static/media/slide3.jpg": "/Birthday-Wishess/static/media/slide3.3ad645500519a835b387.jpg",
+    "static/media/slide4.jpg": "/Birthday-Wishess/static/media/slide4.3ad645500519a835b387.jpg",
+    "static/media/slide5.jpg": "/Birthday-Wishess/static/media/slide5.3ad645500519a835b387.jpg",
     "static/media/snapedit_17597754104468.jpeg.jpg": "/Birthday-Wishess/static/media/snapedit_17597754104468.jpeg.95d69d62c53c4627138c.jpg",
     "index.html": "/Birthday-Wishess/index.html",
-    "main.d7f6b6c6.css.map": "/Birthday-Wishess/static/css/main.d7f6b6c6.css.map",
-    "main.4ef39da5.js.map": "/Birthday-Wishess/static/js/main.4ef39da5.js.map"
+    "main.157c2bf1.css.map": "/Birthday-Wishess/static/css/main.157c2bf1.css.map",
+    "main.db404972.js.map": "/Birthday-Wishess/static/js/main.db404972.js.map"
   },
   "entrypoints": [
-    "static/css/main.d7f6b6c6.css",
-    "static/js/main.4ef39da5.js"
+    "static/css/main.157c2bf1.css",
+    "static/js/main.db404972.js"
   ]
 }
