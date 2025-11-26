@@ -18,11 +18,11 @@ export default function BirthdayPage() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const slides = [
-    { title: "🎉 Happy Birthday Nandini! 💖", img: img1, msg: "To the most amazing person ever 💕" },
+    { title: "🎉 Happy Birthday! 💖", img: img1, msg: "To the most amazing person 💕" },
     { title: "🐾 Many More Happy Returns! 🎂", img: img2, msg: "May your days be filled with laughter 💗" },
     { title: "🌸 You Shine Bright!", img: img3, msg: "Your smile lights up every room ✨" },
     { title: "🌈 Keep Being You!", img: img4, msg: "You make life so colorful 🌼" },
-    { title: "💫 Forever Special!", img: img5, msg: "Always stay this wonderful 💕" },
+    { title: "💫 A Small effort from my side to make your day SPECIAL!", img: img5, msg: "Always stay this wonderful 💕" },
   ];
 
   useEffect(() => {

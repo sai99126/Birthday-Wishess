@@ -79,8 +79,8 @@
 
 /* 🖼️ Image styling */
 .card-img {
-  width: 300px;
-  height: 300px;
+  width: 400px;
+  height: 270px;
   border-radius: 20px;
   object-fit: cover;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -102,8 +102,8 @@
 /* 🧭 Arrow indicator */
 .arrow-indicator {
   position: absolute;
-  bottom: 30px;
-  right: 40px;
+  bottom: 355px;
+  right: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -113,9 +113,9 @@
 
 .arrow {
   font-size: 2rem;
-  color: #ff1493;
+  color: #ebaacc;
   animation: bounceArrow 1.2s infinite;
-  text-shadow: 0 0 10px rgba(255, 20, 147, 0.6);
+  text-shadow: 0 0 10px rgba(26, 11, 19, 0.6);
 }
 
 
