@@ -124,6 +124,97 @@
   from { opacity: 0; transform: translateY(10px); }
   to { opacity: 1; transform: translateY(0); }
 }
+/* 🎉 Cake Celebration Slide */
+.cake-slide {
+  background: #ffd6e8;
+}
+
+/* 🎂 Title */
+.cake-title {
+  font-size: 2.5rem;
+  color: #ff1493;
+  margin-bottom: 20px;
+  text-shadow: 0 0 12px rgba(255, 20, 147, 0.5);
+}
+
+/* 🎂 Cake container */
+.cake {
+  position: relative;
+  width: 200px;
+  margin: 30px auto;
+}
+
+/* Cake layers */
+.layer {
+  width: 200px;
+  height: 50px;
+  border-radius: 10px;
+  margin: 5px auto;
+}
+
+.layer-top {
+  background: #ff85c1;
+}
+.layer-middle {
+  background: #ff5da2;
+}
+.layer-bottom {
+  background: #ff3f8f;
+}
+
+/* 🕯️ Candle */
+.candle {
+  position: absolute;
+  top: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 35px;
+  background: white;
+  border-radius: 4px;
+}
+
+/* 🔥 Flame animation */
+.flame {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 14px;
+  height: 14px;
+  background: orange;
+  border-radius: 50%;
+  animation: flicker 0.6s infinite alternate;
+}
+
+@keyframes flicker {
+  from {
+    transform: translateX(-50%) scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateX(-50%) scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* 🎈 Button */
+.celebrate-btn {
+  margin-top: 25px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 25px;
+  background: #ff1493;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.celebrate-btn:hover {
+  transform: scale(1.05);
+}
 
 
 

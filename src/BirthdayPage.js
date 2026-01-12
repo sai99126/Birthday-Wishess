@@ -23,6 +23,8 @@ export default function BirthdayPage() {
     { title: "🌸 You Shine Bright!", img: img3, msg: "Your smile lights up every room ✨" },
     { title: "🌈 Keep Being You!", img: img4, msg: "You make life so colorful 🌼" },
     { title: "💫 A Small effort from my side to make your day SPECIAL!", img: img5, msg: "Always stay this wonderful 💕" },
+    { title: "🎉 Let's Celebrate! 🎂", type: "cake" },
+  
   ];
 
   useEffect(() => {
@@ -69,15 +71,42 @@ export default function BirthdayPage() {
       {/* Slides Carousel */}
       <div className="carousel" onScroll={handleScroll}>
         {slides.map((slide, i) => (
-          <div
-            key={i}
-            className={`card ${i === activeIndex ? "active" : "blurred"}`}
-          >
-            <h1 className="card-title">{slide.title}</h1>
-            <img src={slide.img} alt={`slide-${i}`} className="card-img" />
-            <p className="card-text">{slide.msg}</p>
+  <div
+    key={i}
+    className={`card ${i === activeIndex ? "active" : "blurred"} ${
+      slide.type === "cake" ? "cake-slide" : ""
+    }`}
+  >
+    {slide.type === "cake" ? (
+      <>
+        <h1 className="cake-title">Let's Celebrate! 🎉</h1>
+
+        {/* 🎂 Cake */}
+        <div className="cake">
+          <div className="candle">
+            <div className="flame"></div>
           </div>
-        ))}
+          <div className="layer layer-top"></div>
+          <div className="layer layer-middle"></div>
+          <div className="layer layer-bottom"></div>
+        </div>
+
+        <button className="celebrate-btn">
+          Continue to Next Page →
+        </button>
+      </>
+    ) : (
+      <>
+        <h1 className="card-title">{slide.title}</h1>
+        {slide.img && (
+          <img src={slide.img} alt={`slide-${i}`} className="card-img" />
+        )}
+        <p className="card-text">{slide.msg}</p>
+      </>
+    )}
+  </div>
+))}
+
       </div>
       {/* ➡️ Arrow indicator (visible until last slide) */}
 {activeIndex < slides.length - 1 && (
