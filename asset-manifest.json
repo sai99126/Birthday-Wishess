@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Birthday-Wishess/static/css/main.4ca96466.css",
-    "main.js": "/Birthday-Wishess/static/js/main.f43ac962.js",
+    "main.js": "/Birthday-Wishess/static/js/main.2881de56.js",
     "static/media/audio.mp3": "/Birthday-Wishess/static/media/audio.938586a8383a5b363e3b.mp3",
     "static/media/cat.jpg.png": "/Birthday-Wishess/static/media/cat.jpg.365bc0f8d238dd046328.png",
     "static/media/slide5.jpg": "/Birthday-Wishess/static/media/slide5.3ad645500519a835b387.jpg",
@@ -10,10 +10,10 @@
     "static/media/slide4.jpg": "/Birthday-Wishess/static/media/slide4.ec78f4fc5a1137fdcc5f.jpg",
     "index.html": "/Birthday-Wishess/index.html",
     "main.4ca96466.css.map": "/Birthday-Wishess/static/css/main.4ca96466.css.map",
-    "main.f43ac962.js.map": "/Birthday-Wishess/static/js/main.f43ac962.js.map"
+    "main.2881de56.js.map": "/Birthday-Wishess/static/js/main.2881de56.js.map"
   },
   "entrypoints": [
     "static/css/main.4ca96466.css",
-    "static/js/main.f43ac962.js"
+    "static/js/main.2881de56.js"
   ]
 }
