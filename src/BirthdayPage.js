@@ -92,7 +92,7 @@ export default function BirthdayPage() {
         </div>
 
         <button className="celebrate-btn">
-          Continue to Next Page →
+          Happy Birthday
         </button>
       </>
     ) : (
